@@ -58,7 +58,10 @@ long int compute( int A, int B, int C, int R, vector< long int>&M, int K, int N)
   }
   
   //We have an array of size K+size(new_values) < N 
+  
   result = max + N - M.size();
+  
+  
   
   return result; 
 }
@@ -74,10 +77,11 @@ int main(){
     cin>>N>>K; //N : size of the array whose first K values are known
     cin>>A>>B>>C>>R;
     M.push_back(A); 
-    if(N < K) result = exponentiation(A,N,R);
-    else  result = compute(A,B,C,R,M,K,N);
+   
+    result = compute(A,B,C,R,M,K,N);
     case_num++;
     cout<<"Case #"<<case_num<<": "<<result<<endl;
+    M.clear();
   }
 
 }
